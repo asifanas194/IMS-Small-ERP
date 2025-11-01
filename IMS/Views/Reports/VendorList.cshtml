@@ -1,0 +1,21 @@
+﻿@model IEnumerable<IMS.Models.Vendor>
+
+<h2>Vendor List</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Vendor Name</th>
+            <th>Contact</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var v in Model)
+        {
+            <tr>
+                <td>@v.VendorName</td>
+                <td>@v.ContactNo</td>   <!-- yahan fix hai -->
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "_Layout";
+    var role = Context.Session.GetString("UserRole");
+}
+
+<div class="container-fluid mt-4">
+    <h2 class="fw-bold text-primary mb-4"><i class="bi bi-speedometer2"></i> Dashboard Overview</h2>
+
+    <div class="row g-4">
+        <!-- Total Products -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card shadow border-0 text-center p-3">
+                <div class="card-body">
+                    <i class="bi bi-box-seam text-primary fs-2"></i>
+                    <h6 class="text-secondary mt-2">Total Products</h6>
+                    <h3 class="fw-bold text-primary">@ViewBag.TotalProducts</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Low Stock -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card shadow border-0 text-center p-3">
+                <div class="card-body">
+                    <i class="bi bi-exclamation-triangle text-danger fs-2"></i>
+                    <h6 class="text-secondary mt-2">Low Stock</h6>
+                    <h3 class="fw-bold text-danger">@ViewBag.LowStock</h3>
+                </div>
+            </div>
+        </div>
+
+        @if (role == "Admin")
+        {
+            <!-- Total Vendors -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card shadow border-0 text-center p-3">
+                    <div class="card-body">
+                        <i class="bi bi-truck text-success fs-2"></i>
+                        <h6 class="text-secondary mt-2">Vendors</h6>
+                        <h3 class="fw-bold text-success">@ViewBag.TotalVendors</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Total Inventory Value -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card shadow border-0 text-center p-3">
+                    <div class="card-body">
+                        <i class="bi bi-cash-stack text-warning fs-2"></i>
+                        <h6 class="text-secondary mt-2">Inventory Value</h6>
+                        <h5 class="fw-bold text-warning">Rs. @String.Format("{0:N0}", ViewBag.TotalValue)</h5>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

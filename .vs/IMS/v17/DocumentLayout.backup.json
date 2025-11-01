@@ -1,0 +1,109 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\DownloadsWrk\\IMS\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AA4BCC97-E0F6-47A4-BB0A-DCA25759A361}|IMS\\IMS.csproj|e:\\downloadswrk\\ims\\ims\\helpers\\loghelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA4BCC97-E0F6-47A4-BB0A-DCA25759A361}|IMS\\IMS.csproj|solutionrelative:ims\\helpers\\loghelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA4BCC97-E0F6-47A4-BB0A-DCA25759A361}|IMS\\IMS.csproj|e:\\downloadswrk\\ims\\ims\\models\\imscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA4BCC97-E0F6-47A4-BB0A-DCA25759A361}|IMS\\IMS.csproj|solutionrelative:ims\\models\\imscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA4BCC97-E0F6-47A4-BB0A-DCA25759A361}|IMS\\IMS.csproj|e:\\downloadswrk\\ims\\ims\\models\\useractivitylog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA4BCC97-E0F6-47A4-BB0A-DCA25759A361}|IMS\\IMS.csproj|solutionrelative:ims\\models\\useractivitylog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA4BCC97-E0F6-47A4-BB0A-DCA25759A361}|IMS\\IMS.csproj|e:\\downloadswrk\\ims\\ims\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA4BCC97-E0F6-47A4-BB0A-DCA25759A361}|IMS\\IMS.csproj|solutionrelative:ims\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA4BCC97-E0F6-47A4-BB0A-DCA25759A361}|IMS\\IMS.csproj|e:\\downloadswrk\\ims\\ims\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA4BCC97-E0F6-47A4-BB0A-DCA25759A361}|IMS\\IMS.csproj|solutionrelative:ims\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 320,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{2709096f-c324-42f5-a35d-ae8676d50918}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "E:\\DownloadsWrk\\IMS\\IMS\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "IMS\\Controllers\\HomeController.cs",
+              "ToolTip": "E:\\DownloadsWrk\\IMS\\IMS\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "IMS\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAADwvy4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T11:12:05.547Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "E:\\DownloadsWrk\\IMS\\IMS\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "IMS\\Controllers\\AccountController.cs",
+              "ToolTip": "E:\\DownloadsWrk\\IMS\\IMS\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "IMS\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAADwv1AAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T11:09:37.529Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LogHelper.cs",
+              "DocumentMoniker": "E:\\DownloadsWrk\\IMS\\IMS\\Helpers\\LogHelper.cs",
+              "RelativeDocumentMoniker": "IMS\\Helpers\\LogHelper.cs",
+              "ToolTip": "E:\\DownloadsWrk\\IMS\\IMS\\Helpers\\LogHelper.cs",
+              "RelativeToolTip": "IMS\\Helpers\\LogHelper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T11:11:48.691Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ImsContext.cs",
+              "DocumentMoniker": "E:\\DownloadsWrk\\IMS\\IMS\\Models\\ImsContext.cs",
+              "RelativeDocumentMoniker": "IMS\\Models\\ImsContext.cs",
+              "ToolTip": "E:\\DownloadsWrk\\IMS\\IMS\\Models\\ImsContext.cs",
+              "RelativeToolTip": "IMS\\Models\\ImsContext.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAIwDgAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T11:11:21.666Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserActivityLog.cs",
+              "DocumentMoniker": "E:\\DownloadsWrk\\IMS\\IMS\\Models\\UserActivityLog.cs",
+              "RelativeDocumentMoniker": "IMS\\Models\\UserActivityLog.cs",
+              "ToolTip": "E:\\DownloadsWrk\\IMS\\IMS\\Models\\UserActivityLog.cs",
+              "RelativeToolTip": "IMS\\Models\\UserActivityLog.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T11:11:09.519Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

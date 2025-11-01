@@ -1,0 +1,51 @@
+﻿@model IMS.Models.Vendor
+@{
+    ViewData["Title"] = "Delete Vendor";
+}
+
+<div class="page-heading">
+    <div class="page-title mb-4 d-flex justify-content-between align-items-center">
+        <div>
+            <h3>Delete Vendor</h3>
+            <p class="text-subtitle text-muted mb-0">Confirm before deleting this vendor</p>
+        </div>
+        <a asp-action="Index" class="btn btn-secondary">
+            <i class="bi bi-arrow-left-circle"></i> Back to List
+        </a>
+    </div>
+
+    <section class="section">
+        <div class="card border-danger">
+            <div class="card-header bg-danger text-white">
+                <h5>Are you sure you want to delete this vendor?</h5>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-3">Vendor ID:</dt>
+                    <dd class="col-sm-9">@Model.VendorId</dd>
+
+                    <dt class="col-sm-3">Vendor Name:</dt>
+                    <dd class="col-sm-9">@Model.VendorName</dd>
+
+                    <dt class="col-sm-3">Contact No:</dt>
+                    <dd class="col-sm-9">@Model.ContactNo</dd>
+
+                    <dt class="col-sm-3">Address:</dt>
+                    <dd class="col-sm-9">@Model.Address</dd>
+                </dl>
+
+                <form asp-action="Delete" method="post">
+                    <input type="hidden" asp-for="VendorId" />
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-danger">
+                            <i class="bi bi-trash"></i> Confirm Delete
+                        </button>
+                        <a asp-action="Index" class="btn btn-light border">
+                            Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,271 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    var userRole = HttpContextAccessor.HttpContext.Session.GetString("UserRole");
+    var username = HttpContextAccessor.HttpContext.Session.GetString("Username");
+    var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+    var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - IMS Dashboard</title>
+
+    <!-- ✅ Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- ✅ Bootstrap & Icons -->
+    <link rel="stylesheet" href="~/assets/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/assets/vendors/bootstrap-icons/bootstrap-icons.css" />
+
+    <!-- ✅ SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- ✅ Custom Styles -->
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        /* Sidebar */
+        .sidebar-wrapper {
+            background: #fff;
+            border-right: 1px solid #e5e7eb;
+            min-height: 100vh;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            transition: all 0.3s ease;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+        }
+
+        .sidebar-header {
+            /* background: linear-gradient(90deg, #007bff, #0d6efd); */
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        #main {
+            margin-left: 250px;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-item a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 18px;
+            border-radius: 8px;
+            color: #333;
+            text-decoration: none;
+            transition: background 0.3s, color 0.3s;
+        }
+
+            .sidebar-item a:hover {
+                background-color: #007bff;
+                color: #fff;
+            }
+
+        .sidebar-item.active > a {
+            background-color: #007bff;
+            color: white;
+            font-weight: 600;
+        }
+
+        .submenu a {
+            display: block;
+            padding: 10px 30px;
+            color: #555;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+            .submenu a:hover {
+                background-color: #007bff;
+                color: #fff;
+            }
+
+        .submenu {
+            transition: height 0.3s ease;
+        }
+
+        /* Navbar */
+        nav.navbar {
+            background: white;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
+        footer {
+            background: #f8f9fa;
+        }
+
+        /* Animation */
+        .fade-in {
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        @@keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- ✅ Sidebar -->
+        <div id="sidebar" class="sidebar-wrapper active">
+            <div class="sidebar-header text-center py-4">
+                <h4>IMS Dashboard</h4>
+            </div>
+
+            <div class="sidebar-menu mt-4">
+                <ul class="menu list-unstyled px-3">
+
+                    <li class="sidebar-item @(currentController == "Home" ? "active" : "")">
+                        <a asp-controller="Home" asp-action="Index">
+                            <span><i class="bi bi-house-door me-2"></i> Dashboard</span>
+                        </a>
+                    </li>
+
+                    @if (userRole == "Admin")
+                    {
+                        <li class="sidebar-item @(currentController == "Category" ? "active" : "")">
+                            <a asp-controller="Category" asp-action="Index">
+                                <span><i class="bi bi-tags me-2"></i> Category</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item @(currentController == "Vendor" ? "active" : "")">
+                            <a asp-controller="Vendor" asp-action="Index">
+                                <span><i class="bi bi-truck me-2"></i> Vendor</span>
+                            </a>
+                        </li>
+                    }
+
+                    <li class="sidebar-item @(currentController == "Product" ? "active" : "")">
+                        <a asp-controller="Product" asp-action="Index">
+                            <span><i class="bi bi-box-seam me-2"></i> Product</span>
+                        </a>
+                    </li>
+
+                    <!-- ✅ Collapsible Reports Menu -->
+                    <li class="sidebar-item @(currentController == "Reports" ? "active" : "")">
+                        <a href="#reportsSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            <span><i class="bi bi-bar-chart-line me-2"></i> Reports</span>
+                            <i class="bi bi-chevron-down ms-auto"></i>
+                        </a>
+                        <ul class="collapse submenu list-unstyled mt-2 @(currentController == "Reports" ? "show" : "")" id="reportsSubmenu">
+                            <li>
+                                <a asp-controller="Reports" asp-action="AllProducts">
+                                    <i class="bi bi-box me-2"></i> All Products
+                                </a>
+                            </li>
+                            <li>
+                                <a asp-controller="Reports" asp-action="LowStock">
+                                    <i class="bi bi-exclamation-triangle me-2"></i> Low Stock
+                                </a>
+                            </li>
+                          
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item mt-4">
+                        <form asp-controller="Account" asp-action="Logout" method="post">
+                            <button type="submit" class="btn btn-outline-danger w-100">
+                                <i class="bi bi-box-arrow-right"></i> Logout
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ✅ Main Content -->
+        <div id="main">
+            <nav class="navbar navbar-light px-4 d-flex justify-content-between">
+                <div>
+                    <i class="bi bi-list text-primary fs-4 me-3" id="toggleSidebar" style="cursor:pointer;"></i>
+                    <span class="navbar-brand mb-0 h5 text-primary fw-bold">IMS Dashboard</span>
+                </div>
+
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-person-circle text-primary fs-5 me-2"></i>
+                    <span class="fw-semibold">@username</span>
+                    <span class="badge bg-secondary ms-2">@userRole</span>
+                </div>
+            </nav>
+
+            <div class="container-fluid py-4 fade-in">
+                @RenderBody()
+            </div>
+
+            <footer class="text-center text-muted small border-top py-3">
+                © 2025 IMS Dashboard | Developed by <b>Anas Asif</b>
+            </footer>
+        </div>
+    </div>
+
+    <!-- ✅ Scripts -->
+    <script src="~/assets/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Sidebar toggle
+        const sidebar = document.querySelector(".sidebar-wrapper");
+        const main = document.querySelector("#main");
+        const toggleBtn = document.querySelector("#toggleSidebar");
+
+        toggleBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("active");
+            if (sidebar.classList.contains("active")) {
+                sidebar.style.marginLeft = "0";
+                main.style.marginLeft = "250px";
+            } else {
+                sidebar.style.marginLeft = "-250px";
+                main.style.marginLeft = "0";
+            }
+        });
+
+        // ✅ SweetAlert2 Alerts (Auto detect ViewBag)
+        @if (TempData["Success"] != null)
+        {
+                <text>
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success',
+                        text: '@TempData["Success"]',
+                        timer: 2000,
+                        showConfirmButton: false
+                    });
+                </text>
+        }
+
+        @if (TempData["Error"] != null)
+        {
+                <text>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: '@TempData["Error"]'
+                    });
+                </text>
+        }
+    </script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

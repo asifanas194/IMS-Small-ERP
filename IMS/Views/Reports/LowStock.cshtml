@@ -1,0 +1,22 @@
+﻿@model IEnumerable<dynamic>
+<h2>Low Stock Products</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Category</th>
+            <th>Quantity</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.ProductName</td>
+                <td>@p.Category</td>
+                <td>@p.Quantity</td>
+            </tr>
+        }
+    </tbody>
+</table>

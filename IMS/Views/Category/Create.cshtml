@@ -1,0 +1,54 @@
+﻿@model IMS.Models.Category
+
+@{
+    ViewData["Title"] = "Add New Category";
+    // Layout = "_adminLayout";
+}
+
+<div class="page-heading">
+    <div class="page-title mb-4 d-flex justify-content-between align-items-center">
+        <div>
+            <h3>Add New Category</h3>
+            <p class="text-subtitle text-muted mb-0">Enter category details below</p>
+        </div>
+        <a asp-action="Index" class="btn btn-secondary">
+            <i class="bi bi-arrow-left-circle"></i> Back to List
+        </a>
+    </div>
+
+    <section class="section">
+        <div class="card">
+            <div class="card-header">
+                <h5>Category Details</h5>
+            </div>
+            <div class="card-body">
+                <form asp-action="Create" method="post" class="needs-validation" novalidate>
+                    <div class="mb-3">
+                        <label asp-for="CategoryName" class="form-label fw-bold">Category Name</label>
+                        <input asp-for="CategoryName" class="form-control" placeholder="Enter category name" required />
+                        <span asp-validation-for="CategoryName" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Description" class="form-label fw-bold">Description</label>
+                        <textarea asp-for="Description" class="form-control" rows="3" placeholder="Enter short description"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-save"></i> Save
+                        </button>
+                        <a asp-action="Index" class="btn btn-light border">
+                            Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
