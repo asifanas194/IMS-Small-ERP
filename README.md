@@ -23,14 +23,8 @@
 
 ## Screenshots
 
-**Dashboard**  
-![Dashboard](screenshots/dashboard.png)
+![IMS-login](https://github.com/user-attachments/assets/b3f09641-cfe0-4c93-a8c6-0d5385ace89c)
 
-**Products Page**  
-![Products](screenshots/products.png)
-
-**Reports Page**  
-![Reports](screenshots/reports.png)
 
 ---
 
